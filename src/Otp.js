@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 
 import './style.css';
 
 export const Otp = () => {
-    const location = useLocation();
     const navigate = useNavigate();
-    // let formOtp = location?.state;
     const formOtp = localStorage.getItem('otp')
 
     const [otp, setOtp] = useState('');
@@ -30,11 +28,10 @@ export const Otp = () => {
     };
 
     const resend = () => {
-
         const NewOtp = Math.trunc(Math.random() * 10001);
         setGenOtp(NewOtp)
         console.log('resend', genOtp);
-        timeOut()
+        timeOut();
     }
 
     const verifyOtp = () => {
@@ -52,9 +49,7 @@ export const Otp = () => {
 
     }
     useEffect(() => {
-
         timeOut()
-
     }, [])
 
     return (
@@ -65,9 +60,10 @@ export const Otp = () => {
                     <OtpInput
                         value={otp}
                         onChange={setOtp}
+
                         numInputs={4}
                         renderSeparator={<span> - </span>}
-                        renderInput={(props) => <input {...props} style={{ borderRadius: '5px', width: '35px', height: '35px', textAlign: 'center' }} />}
+                        renderInput={(props) => <input className='otpInput' {...props} />}
                     />
                     <button type="reset" value="Reset" className="otpResend" onClick={() => resend()}>Resend</button>
                     <button type="submit" value="Submit" className="otpSubmit" onClick={() => verifyOtp()} >Submit</button>

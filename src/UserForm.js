@@ -6,12 +6,17 @@ import './style.css';
 
 export const UserForm = () => {
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { register, handleSubmit, formState: { errors }, watch } = useForm({
+        defaultValues: {
+            country: 'IN',
+            state: 'MP',
+            city: 'Shujalpur'
+        }
+    });
 
     const countries = Country.getAllCountries();
-
     const country = register("country");
-    const selectedCountryCode = watch("country");
+    const selectedCountryCode = watch("country", 'IN');
 
 
     const state = register('state');
@@ -21,7 +26,6 @@ export const UserForm = () => {
     const city = register('city');
     const cities = City.getCitiesOfState(selectedCountryCode, selectedStateCode);
     const selectedCity = watch('city');
-
     const onSubmit = data => {
         const otp = Math.trunc(Math.random() * 10001);
         console.log('otp = ', otp)
