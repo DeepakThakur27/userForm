@@ -1,10 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { Country, State, City } from 'country-state-city';
+import { useNavigate } from 'react-router-dom';
 
 import './style.css';
 
 export const UserForm = () => {
-
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
 
     const countries = Country.getAllCountries();
@@ -23,10 +24,10 @@ export const UserForm = () => {
 
     const onSubmit = data => {
         const otp = Math.trunc(Math.random() * 10001);
-        console.log(otp);
+        console.log('otp = ', otp)
+        localStorage.setItem('otp', otp)
+        navigate('/otp');
     };
-
-    console.log('hi', errors)
     return (
         <>
             <div className='container' >
@@ -82,12 +83,12 @@ export const UserForm = () => {
                     </div>
                     <div >
                         <select className='address' onChange={e => country.onChange(e)}
-                            {...register('country')}
+                            {...register('country', { required: 'country' })}
                         >
                             <option>Select country</option>
                             {countries.map((country, index) => (<option key={index + 1} value={country.isoCode}>{country.name}</option>))}
                         </select>
-
+                        <p className='error' >{errors.countries?.message}</p>
                     </div>
                     <div>
                         <select className='address' onChange={e => state.onChange(e)}
