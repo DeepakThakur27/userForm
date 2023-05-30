@@ -54,19 +54,24 @@ export const Otp = () => {
 
     return (
         <>
-            <h4 style={{ justifyContent: 'center', alignContent: 'center', textAlign: 'center' }}>OTP Screen</h4>
-            <div className="main">
-                <div className="otpContainer">
-                    <OtpInput
-                        value={otp}
-                        onChange={setOtp}
+            <div >
+                <h4 className="title">OTP Screen</h4>
+                <div className="main">
+                    <div className="otpContainer">
+                        <OtpInput
+                            value={otp}
+                            onChange={setOtp}
 
-                        numInputs={4}
-                        renderSeparator={<span> - </span>}
-                        renderInput={(props) => <input className='otpInput' {...props} />}
-                    />
-                    <button type="reset" value="Reset" className="otpResend" onClick={() => resend()}>Resend</button>
-                    <button type="submit" value="Submit" className="otpSubmit" onClick={() => verifyOtp()} >Submit</button>
+                            numInputs={4}
+                            renderSeparator={<span> - </span>}
+                            renderInput={(props) => <input className='otpInput' {...props} style={{
+                                width: '3vw', height: '5vh', borderRadius: '1.5vh', border: '3px solid #cacaf0', textAlign:
+                                    "center", fontSize: '5vh', margin: '5%'
+                            }} />}
+                        />
+                        <button type="reset" value="Reset" className="otpResend" onClick={() => resend()}>Resend</button>
+                        <button type="submit" value="Submit" className="otpSubmit" onClick={() => verifyOtp()} >Submit</button>
+                    </div>
                 </div>
             </div>
         </>

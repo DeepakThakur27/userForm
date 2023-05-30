@@ -1,4 +1,5 @@
  * {
+     box-sizing: border-box;
      margin: 0px;
      padding: 0px;
  }
@@ -9,7 +10,7 @@
  }
 
  .container {
-     background: #e7e0e0;
+     background: rgb(226, 226, 225);
      width: 100%;
      height: 100vh;
      align-items: center
@@ -19,79 +20,139 @@
      text-align: center;
  }
 
- .userForm {
-     background-color: #28322b6e;
+ .mainform {
+     background-color: whitesmoke;
+     width: 50vw;
+     min-height: 70vh;
+     display: flex;
+     flex-wrap: wrap;
+     border-radius: 1%;
      margin-top: 8vh;
      margin-left: auto;
      margin-right: auto;
-     width: 50vw;
-     height: 60vh;
-     border: 1px solid #131323;
-     display: grid;
-     grid-template-columns: repeat(2, 2fr);
-     grid-auto-rows: (300px);
-     gap: 8%;
-     align-items: center;
-     padding: 30px;
+     border: 1px solid #bcbcca;
+     gap: 10%;
+     padding: 3%;
  }
 
  .userField>input {
-     margin-top: 1px;
-     width: 99%;
+     width: 19vw;
      height: 40px;
+     border: 1px solid #bcbcca;
+     margin-top: 5%;
+     padding: 2%;
+
  }
 
  .userField>.inputField {
-     width: 84%;
+     border-left: 0px solid whitesmoke;
+     width: 16vw;
      height: 40px;
  }
 
  .userField>.countryCode {
-     width: 50px;
-     height: 42.2px;
+     border: 1px solid #bcbcca;
+     border-right: 0px solid whitesmoke;
+     margin-top: 5%;
+     width: 3vw;
+     height: 40px;
  }
 
  .address {
-     margin-top: 1px;
-     width: 100%;
-     height: 42px;
+     margin-top: 5%;
+     border: 1px solid #bcbcca;
+     width: 19vw;
+     height: 40px;
  }
 
  .buttonSubmit {
-     margin-left: 70%;
      background: rgb(72, 134, 72);
-     width: 70%;
+     width: 17vw;
      height: 6vh;
+     margin-top: 5%;
+     margin-left: auto;
+     margin-right: auto;
+     font-size: large;
  }
 
  .main {
      height: 100vh;
-     width: 100%;
+     width: 100vw;
      display: flex;
      align-items: center;
      justify-content: center;
  }
 
+ .title {
+     justify-content: center;
+ }
+
  .otpContainer {
-     width: 11%;
-     height: 20vh;
-     padding: 20px;
+     width: 25vw;
+     height: 40vh;
+     padding: 2%;
      border: 1px solid rgba(92, 55, 55, 0.267);
+     justify-content: center;
  }
 
  .otpContainer>button {
-     width: 4vw;
-     height: 5vh;
-     border-radius: 10%;
-     margin: 5%;
-     margin-top: 20%;
+     background-color: rgb(103, 195, 231);
+     border: 2px solid grey;
+     width: 18vw;
+     height: 7vh;
+     border-radius: 8%;
+     margin-left: 7%;
+     margin-top: 8%;
  }
 
 
- .otpContainer>.otpResend {
-     background: #d4a7a7;
- }
 
- .otpContainer>.otpSubmit {
-     background: #67a568;
+ @media only screen and (max-width: 700px) {
+     .mainform {
+         height: auto;
+     }
+
+     .userField>input {
+         width: 100%;
+
+     }
+
+     .userField>input {
+         width: 43vw;
+     }
+
+     .userField>.inputField {
+         margin-left: 0%;
+         width: 35vw;
+     }
+
+     .userField>.countryCode {
+         width: 8vw;
+     }
+
+     .address {
+         margin-top: 5%;
+         border: 1px solid #bcbcca;
+         width: 43vw;
+     }
+
+     .buttonSubmit {
+         width: 43vw;
+         height: 6vh;
+     }
+
+
+
+     .otpContainer {
+         width: 35vw;
+         height: 20vh;
+     }
+
+     .otpContainer>button {
+         background-color: rgb(103, 195, 231);
+         border: 2px solid grey;
+         width: 25vw;
+         height: 4vh;
+     }
+
  }
