@@ -83,8 +83,17 @@
      justify-content: center;
  }
 
- .title {
-     justify-content: center;
+ .otpTitle {
+     position: relative;
+     top: 15vh;
+     text-align: center;
+ }
+
+ .otpTimer {
+     position: relative;
+     top: 20vh;
+     text-align: center;
+
  }
 
  .otpContainer {
@@ -104,7 +113,6 @@
      margin-left: 7%;
      margin-top: 8%;
  }
-
 
 
  @media only screen and (max-width: 700px) {
@@ -155,4 +163,20 @@
          height: 4vh;
      }
 
+ }
+
+ .header {
+     width: 100vw;
+     height: 5rem;
+     font-size: 2rem;
+     text-align: right;
+     padding: 1rem;
+     background-color: rgb(164, 164, 173);
+
+ }
+
+ .header>.headerLink {
+     margin-right: 5rem;
+     color: rgb(236, 236, 243);
+     text-decoration: none;
  }
